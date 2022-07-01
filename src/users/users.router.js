@@ -6,12 +6,12 @@ Router.post('/users/login', Hub.loginUser)
 
 Router.post('/users', Hub.createUser)
 
-Router.get('/users/:userId', Middlewares.auth, Hub.getUser)
+Router.get('/users/:userId', Hub.getUser)
 
-Router.get('/users', Middlewares.auth, Hub.getUsers)
+Router.get('/users', Hub.getUsers)
 
-Router.put('/users/:userId', Middlewares.auth, Hub.updateUser)
+Router.put('/users/:userId', Hub.updateUser)
 
-Router.delete('/users/:userId', Middlewares.auth, Hub.deleteUser)
+Router.delete('/users/:userId', Hub.deleteUser)
 
 module.exports = Router

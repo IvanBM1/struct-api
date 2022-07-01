@@ -54,7 +54,9 @@ async function getUsers(query) {
 
         if(query.find) {
             const regexp = new RegExp(query.find, 'i')
-            options.$or = []
+            options.$or = [
+                {name: regexp}
+            ]
         }
 
         const users = await Model.find(options)

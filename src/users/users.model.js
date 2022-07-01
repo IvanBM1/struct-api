@@ -55,22 +55,22 @@ schema.pre('save', function(next) {
 })
 
 schema.post('save', function(err, doc, next) {
-    if(err) return next(Messages(err).UserSaveError)
+    if(err) return next(new Messages(err).UserSaveError)
     next()
 })
 
 schema.post('remove', function(err, doc, next) {
-    if(err) return next(Messages(err).UserDeleteError)
+    if(err) return next(new Messages(err).UserDeleteError)
     next()
 })
 
 schema.post('findOne', function(err, doc, next) {
-    if(err) return next(Messages(err).UserGetError)
+    if(err) return next(new Messages(err).UserGetError)
     next()
 })
 
 schema.post('find', function(err, doc, next) {
-    if(err) return next(Messages(err).UserGetError)
+    if(err) return next(new Messages(err).UserGetError)
     next()
 })
 

@@ -58,15 +58,16 @@ async function responseError(request, response, next) {
             console.info(error)
         }
 
-        if(!error || !error.code)
+        if(!error || !error.code || !error.key)
             error = {
                 code: 503,
                 key: 'serverUnknow',
                 message: 'Error en el servidor',
-                $details: error
+                $details: error,
+                $stack: (error.stack || []).split('\n')
             }
 
-        response.status(error.code).send({
+        response.status(error.code || 503).send({
             success: false,
             error
         })
