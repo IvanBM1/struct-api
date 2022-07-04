@@ -15,4 +15,5 @@ module.exports = [
     Router,
     require('./users/users.router'),
     require('./sessions/sessions.router'),
+    require('./bills/bills.router'),
 ]
